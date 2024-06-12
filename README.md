@@ -30,7 +30,11 @@ Set up a Postgres database using a Helm Chart.
 5. Push Changes to GitHub: Commit and push your changes to your GitHub repository.
 6. Trigger CodeBuild: CodeBuild will automatically start the build process and push the Docker image to ECR upon detecting changes.
 7. Apply Configurations: Use kubectl apply -f configmap.yaml to apply configuration properties and secrets.
-8. Deploy Application: Deploy your application using kubectl apply -f coworking.yaml.
+8. Deploy Application: Deploy your application using kubectl apply -f coworking.yaml. 
+
+
+
+
 
 
 * `DB_USERNAME`
