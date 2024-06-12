@@ -1,0 +1,30 @@
+# Use the official Python image from the Docker Hub
+FROM public.ecr.aws/docker/library/python:3.10-slim-buster
+
+ARG APP_VERSION=1.0.0
+
+# Set the working directory in the container
+WORKDIR /app
+COPY . /app
+
+RUN apt update -y
+RUN apt install build-essential libpq-dev -y
+RUN pip install --upgrade pip setuptools wheel
+RUN pip install -r requirements.txt
+
+# Define environment variable
+COPY . .
+ENV DB_USERNAME=myuser
+ENV DB_PASSWORD=mypassword
+ENV DB_HOST=127.0.0.1
+ENV DB_PORT=5433
+ENV DB_NAME=mydatabase
+
+# Make port 5153 available to the world outside this container
+EXPOSE 5153
+
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+
+# Tag the Docker image with the application version
+LABEL version=$APP_VERSION
