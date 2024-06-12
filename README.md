@@ -34,9 +34,6 @@ Set up a Postgres database using a Helm Chart.
 
 
 
-q
-
-
 * `DB_USERNAME`
 * `DB_PASSWORD`
 * `DB_HOST` (defaults to `127.0.0.1`)
