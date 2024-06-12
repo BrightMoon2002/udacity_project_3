@@ -8,7 +8,7 @@ env:
 phases:
   pre_build:
     commands:
-      # Set up Docker login with aws ecr get-login-password
+      # Set up Docker login with aws ecr get-login-password  and something to check
       - echo "Setting up Docker login"
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
   build:
